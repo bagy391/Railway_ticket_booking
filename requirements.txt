@@ -1,0 +1,10 @@
+Django==4.2
+django-redis==5.4.0
+psycopg2-binary==2.9.9
+django-filter==24.2
+django-model-utils==4.2.0
+drf-dynamic-read==0.1.1
+django-phonenumber-field==8.0.0
+djangorestframework==3.15.2
+phonenumbers
+requests

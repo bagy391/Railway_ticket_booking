@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis:6
+    ports:
+      - 6380:6379
+
+  web:
+    build: .
+    command: sh -c "python manage.py migrate &&
+             python manage.py shell < createsuperuser.py &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app/:cached
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      - DEBUG=1
+version: '3.4'
